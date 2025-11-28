@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: {{ .Release.Name }}-nodejs-app
+labels:
+ app: {{ .Release.Name }}-nodejs-app
+spec:
+ replicas: {{ .Values.replicaCount }}
+ selector:
+ matchLabels:
+ app: {{ .Release.Name }}-nodejs-app
+ template:
+ metadata:
+ labels:
+ app: {{ .Release.Name }}-nodejs-app
+ spec:
+ containers:
+ - name: nodejs-app
+ image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+ imagePullPolicy: {{ .Values.image.pullPolicy }}
+ ports:
+ - containerPort: {{ .Values.service.targetPort }}

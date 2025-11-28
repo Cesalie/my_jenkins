@@ -1,0 +1,16 @@
+{
+  "name": "my-nodejs-app",
+  "version": "1.0.0",
+  "description": "My Node.js app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "docker build -t my-nodejs-app .",
+    "release": "echo 'Release workflow triggered'"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

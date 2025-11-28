@@ -1,0 +1,10 @@
+replicaCount: 3
+image:
+ repository: my-nodejs-app
+ tag: latest
+ pullPolicy: IfNotPresent
+service:
+ type: NodePort
+ port: 8080
+ targetPort: 3000
+ nodePort: 30008
